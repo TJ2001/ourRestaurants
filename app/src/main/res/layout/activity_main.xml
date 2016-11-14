@@ -25,7 +25,8 @@
         android:textColor="@color/colorPrimaryLight"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:phoneNumber="true" />
 
     <Button
         android:layout_width="match_parent"
