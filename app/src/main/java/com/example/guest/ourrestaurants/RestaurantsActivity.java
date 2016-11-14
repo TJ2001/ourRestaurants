@@ -3,6 +3,7 @@ package com.example.guest.ourrestaurants;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,8 @@ import butterknife.Bind;
 public class RestaurantsActivity extends AppCompatActivity {
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.listView) ListView mListView;
+
+    public static final String TAG = RestaurantsActivity.class.getSimpleName();
 
     private String[] restaurants = new String[] {"Mi Mero Mole", "Mother's Bistro",
             "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil", "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
@@ -36,12 +39,14 @@ public class RestaurantsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?>adapterView, View view, int i, long l){
                 String restaurant = ((TextView)view).getText().toString();
                 Toast.makeText(RestaurantsActivity.this, restaurant, Toast.LENGTH_LONG).show();
+                Log.v(TAG, "In the onItemClickListener!");
             }
         });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("locations");
         mLocationTextView.setText("Here are all the restaurants near: " + location);
+        Log.d(TAG, "In the onCreate method!");
 
     }
 }
