@@ -6,9 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.guest.ourrestaurants.R;
 import com.example.guest.ourrestaurants.adapters.RestaurantListAdapter;
@@ -50,7 +47,7 @@ public class RestaurantsActivity extends AppCompatActivity {
     private void getRestaurants(String location) {
         final YelpService yelpService = new YelpService();
 
-        yelpService.findRestaurants(location, new Callback() {
+        YelpService.findRestaurants(location, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
