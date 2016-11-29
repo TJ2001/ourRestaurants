@@ -10,11 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.guest.ourrestaurants.R;
+import com.example.guest.ourrestaurants.ui.RestaurantsActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @Bind(R.id.editText) EditText mLocationEditText;
@@ -26,23 +27,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mLocationEditText = (EditText) findViewById(R.id.editText);
-        mAppNameTextView = (TextView) findViewById(R.id.textViewAmazing);
-        mFindRestaurantsButton = (Button) findViewById(R.id.findRestaurantsButton);
-
         Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/Anagram.ttf");
         mAppNameTextView.setTypeface(ostrichFont);
 
+        mFindRestaurantsButton.setOnClickListener(this);
+    }
 
-        mFindRestaurantsButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-            }
-        });
-
+    @Override
+    public void onClick(View v) {
+        if (v == mFindRestaurantsButton) {
+            String location = mLocationEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
+            intent.putExtra("location", location);
+            startActivity(intent);
+        }
     }
 }

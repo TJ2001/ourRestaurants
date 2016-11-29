@@ -1,7 +1,10 @@
 package com.example.guest.ourrestaurants.services;
 
+import android.util.Log;
+
 import com.example.guest.ourrestaurants.Constants;
 import com.example.guest.ourrestaurants.models.Restaurant;
+import com.example.guest.ourrestaurants.ui.RestaurantsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +29,8 @@ import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 
 
 public class YelpService {
+
+    public static final String TAG = YelpService.class.getSimpleName();
 
     public static void findRestaurants(String location, Callback callback) {
         OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(Constants.YELP_CONSUMER_KEY, Constants.YELP_CONSUMER_SECRET);
@@ -53,6 +58,7 @@ public class YelpService {
 
         try {
             String jsonData = response.body().string();
+            Log.v(TAG, "RESPONSE BOOL: " +  response.isSuccessful());
             if (response.isSuccessful()) {
                 JSONObject yelpJSON = new JSONObject(jsonData);
                 JSONArray businessesJSON = yelpJSON.getJSONArray("businesses");
