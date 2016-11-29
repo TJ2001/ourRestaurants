@@ -1,4 +1,4 @@
-package com.example.guest.ourrestaurants;
+package com.example.guest.ourrestaurants.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.guest.ourrestaurants.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
         mFindRestaurantsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String locations = mLocationEditText.getText().toString();
+                String location = mLocationEditText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
-                intent.putExtra("locations", locations);
+                intent.putExtra("location", location);
                 startActivity(intent);
             }
         });

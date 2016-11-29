@@ -3,6 +3,8 @@ package com.example.guest.ourrestaurants;
 import android.os.Build;
 import android.widget.ListView;
 
+import com.example.guest.ourrestaurants.ui.RestaurantsActivity;
+
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
