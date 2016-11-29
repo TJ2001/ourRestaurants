@@ -48,7 +48,9 @@
         android:layout_above="@+id/findRestaurantsButton"
         android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:inputType="text"/>
 
 
 </RelativeLayout>
