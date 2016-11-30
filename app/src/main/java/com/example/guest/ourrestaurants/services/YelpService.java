@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.example.guest.ourrestaurants.Constants;
 import com.example.guest.ourrestaurants.models.Restaurant;
-import com.example.guest.ourrestaurants.ui.RestaurantsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
